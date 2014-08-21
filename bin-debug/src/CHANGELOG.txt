@@ -1,0 +1,59 @@
+object3D + 
+public function rotateToBySelf(ax:Number, ay:Number, az:Number):void
+		{
+			var m:Matrix3D = new Matrix3D();
+			if(!isNaN(ax)) m.prependRotation(ax,Vector3D.X_AXIS);
+			if(!isNaN(ay)) m.prependRotation(ay,Vector3D.Y_AXIS);
+			if(!isNaN(az)) m.prependRotation(az,Vector3D.Z_AXIS);
+			
+			var vec:Vector3D = m.decompose()[1];
+			
+			if(!isNaN(ax)) _rotationX = vec.x;
+			if(!isNaN(ay)) _rotationY = vec.y;
+			if(!isNaN(az)) _rotationZ = vec.z;
+			
+			invalidateRotation();
+		}
+		
+add 
+
+
+		private var _data:Object;
+		public function get data():Object
+		{
+			return _data;
+		}
+		public function set data(value:Object):void
+		{
+			_data = value;
+		}
+		
+cancelGPUCompatibility add trace();
+
+add clone() + clone.data = data;
+
+AssetLoader add data;
+
+md2Parser add 
+if(name != ""){
+					_materialNames[i] = name;
+					// only support 1 skin TODO: really?
+					if (dependencies.length == 0)
+						addDependency(name, new URLRequest(url));
+				}
+			
+			
+object3d add
+public function set position(value:Vector3D):void
+		{
+			var isChange:Boolean;
+			if(x != value.x || y != value.y || z != value.z){
+				isChange = true;
+			}
+			_x = value.x;
+			_y = value.y;
+			_z = value.z;
+			
+			if(isChange) invalidatePosition();
+		}
+		

@@ -1,0 +1,2 @@
+这里是组件的itemRenderer,比如combobox,vlist,menu。。。是封闭的,一般里面只有icon+textField
+和具体项目中vbox,hbox里的itemRenderer不一样。具体项目中的itemRenderer里面可能有很多的内容

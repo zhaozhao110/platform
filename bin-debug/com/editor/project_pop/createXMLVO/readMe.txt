@@ -1,0 +1,1 @@
+生成xml的vo,包括listvo,groupvo,itemvo

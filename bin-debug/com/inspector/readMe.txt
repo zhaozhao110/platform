@@ -1,0 +1,2 @@
+系统flash加载的loading.swf
+比如浏览器里flash调试工具
